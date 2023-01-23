@@ -1,7 +1,13 @@
 asgiref==3.5.2
 beautifulsoup4==4.11.1
+distlib==0.3.6
 Django==4.1.4
+django-bootstrap-v5==1.0.11
 django-fontawesome-5==1.0.18
+filelock==3.9.0
+platformdirs==2.6.2
+product==0.1.1.1
 soupsieve==2.3.2.post1
 sqlparse==0.4.3
 tzdata==2022.7
+virtualenv==20.17.1
