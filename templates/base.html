@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+{% load fontawesome_5 %}
+{% fontawesome_5_static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet"
+          href="{% static 'stylesheets/bt523/css/bootstrap.css' %}">
+    <script src="{% static 'stylesheets/bt523/js/bootstrap.js' %}"></script>
+    <script src="{% static 'stylesheets/bt523/js/bootstrap.bundle.js' %}"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
+</head>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 bg-primary">
+            {% include 'header.html' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 bg-info text-dark">
+            {% include 'menu.html' %}
+        </div>
+        <div class="col-lg-9 bg-white text-primary"style="background-image: url({% static 'images/bg.jpg' %})">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

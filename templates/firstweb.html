@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="text-danger text-center"><h1>ประวัติการศึกษา</h1></div>
+    <div class="col-lg-8 text-primary mb-5">
+        <br> ชื่อ: นายศุภรักษ์ สะเดา </br>
+        <br> ชื่อสถาบัน: วิทยาลัยเทคนิคร้อยเอ็ด </br>
+        <br> ตำแหน่งที่ตั้ง: 210 ถ. แจ้งสนิท ตำบล ในเมือง อำเภอเมืองร้อยเอ็ด ร้อยเอ็ด 45000</br>
+        <br> กำลังศึกษาอยู่ที่: มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน วิทยาเขตขอนแก่น  </br>
+        <br> สาขาที่เรียน: เทคโนโลยีธุรกิจดิจิทัล </br>
+        <br> เกรด: 2.57 </br>
+
+    </div>
+    <div class="row">
+            <div class="col-md-6 ">
+                <img src="{% static 'images/map.jpg' %}"
+                   width="400px" height="200px">
+            </div>
+            <div class="col-md-4 ">
+                <img src="{% static 'images/map1.jpg' %}"
+                   width="400px" height="200px">
+            </div>
+
+        </div>
+    <br><br>
+    <a href="{% url 'secondpage' %}" class="btn btn-warning">Go to Second Page</a>
+    <a href="{% url 'thirdpage' %}" class="btn btn-success">Go to Third Page </a> <br>
+    <br><br><br><br>
+{% endblock %}
+
+//fristweb = Educational

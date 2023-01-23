@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div id="container">
+            <h3 class=" text-center">สิ่งที่สนใจ</h3>
+            <h4>1. สนใจในการเล่นเกม <h4>
+        <br>
+         <img src="{% static 'images/game.png' %}"
+                   width="400px" height="200px">
+            <br>2. สนใจในการเลี้ยงสุนัข <br>
+        <br>
+        <img src="{% static 'images/bob.jpg' %}"
+                   width="400px" height="200px">
+            <br>3. สนใจในการกิน <br>
+        <br>
+        <img src="{% static 'images/food.png' %}"
+                   width="400px" height="200px">
+             <br>4. สนใจในการฟังเพลง <br>
+        <br>
+        <img src="{% static 'images/song.jpg' %}"
+                   width="400px" height="200px">
+                <br><br>
+            </h4></h4>
+    </div>
+
+<a href="{% url 'firstweb' %}" class="btn btn-danger">Go to First Web</a>
+    <a href="{% url 'thirdpage' %}" class="btn btn-success">Go to Third Page </a> <br>
+
+
+    <br><br><br><br>
+
+</div>
+{% endblock %}
+
+
+//secondpage = Interests
