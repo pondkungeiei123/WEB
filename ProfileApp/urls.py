@@ -11,4 +11,6 @@ urlpatterns = [
     path('history/', views.history, name='history'),
     path('product/', views.product, name='product'),
     path('ShowMyData', views.showMyData, name="ShowMyData"),
+    path('inputProduct', views.inputProduct, name="inputProduct"),
+    path('listProduct', views.listProduct, name="listProduct"),
 ]

@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('ProfileApp/', include('ProfileApp.urls')),
 
+
 ]

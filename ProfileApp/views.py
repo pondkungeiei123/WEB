@@ -1,11 +1,15 @@
-from django.shortcuts import render, HttpResponse
-# from .models import Product
+from django.shortcuts import render, HttpResponse, redirect
+
 
 #
 # def showProduct(request):
 #     product = Product()
 
 # Create your views here.
+from ProfileApp.forms import ProductForm
+from ProfileApp.models import Product
+
+
 def test(request):
     return HttpResponse("<H1>Hello World <br> This is My World Wide Web </H1>")
 
@@ -57,3 +61,51 @@ def showMyData(request):
               'bloodType': bloodType, 'like': like, 'hate': hate, 'status': status, 'futurecareer': futurecareer,
               'myproduct':myproduct}
     return  render(request,'showMyData.html',mydata)
+
+lstOurProduct = []
+def listProduct(requset):
+    print(lstOurProduct)
+    context = {'products':lstOurProduct}
+    return render(requset,"listProduct.html",context)
+def inputProduct(requset) :
+    if requset.method == "POST":
+        form = ProductForm(requset.POST)
+        if form.is_valid() :
+            form = form.cleaned_data
+            pdNumber = form.get('pdNumber')
+            pdName = form.get('pdName')
+            pdPrice = float(form.get('pdPrice'))
+            pdProfit = form.get('pdProfit')
+            pdAmount = form.get('pdAmount')
+            pdVat = form.get('pdVat')
+            product= Product(pdNumber,pdName,pdPrice,pdProfit,pdAmount,pdVat)
+            lstOurProduct.append(product)
+            return redirect('listProduct')
+
+        else:
+            form =ProductForm(form)
+    else:
+        form = ProductForm()
+    context = {'form':form,"CHECK":requset.method}
+    return render(requset,'inputProduct.html',context)
+# def cat_create(request):
+#     if request.method == 'POST':
+#         from = CategoryForm(request.POST)
+#         if from.is_valid():
+#             form.save()
+#             return redirect('cat_retrieve_all')
+#         else:
+#             from = CatagoryFrom()
+#             context = {
+#                 'from':form
+#             }
+#             return render(request,'category/cat_create.html',context)
+# def cat_retrieve_all(request):
+#     cat_list = Category.objects.all()
+#     return render(request, 'category/ca_retrieve_all.html', {'categories': cat_list})
+#
+#     def cat_retrieve_one(request, id):
+#         context = {}
+#
+#     context["category"] = Category.objects.get(id=id)
+#     return render(request, "category/cat_retrieve_one.html", context)
